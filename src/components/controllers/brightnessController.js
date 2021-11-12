@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const BrightnessController = () => {
-	const [val, setVal] = useState(10);
+	const [val, setVal] = useState(50);
 	const [res, setRes] = useState('Test');
 
 	const sendBrightness = async (val) => {
@@ -18,10 +18,10 @@ const BrightnessController = () => {
 	};
 
 	return (
-		<div className="brightness-controller">
+		<div className="brightness-controller controller-item">
 			<div className="brightness-label">Brightness: {val}</div>
 			<div className="slidecontainer">
-				<input className="slider" type="range" min="0" max="100" step="1" onChange={(e) => handleBrightness(e.target.value)} />
+				<input className="slider" type="range" min="0" max="100" step="1" defaultValue="50" onChange={(e) => handleBrightness(e.target.value)} />
 			</div>
 			<p>{res}</p>
 		</div>

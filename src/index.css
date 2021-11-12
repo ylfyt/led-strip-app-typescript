@@ -60,3 +60,7 @@
 	background: #04aa6d;
 	cursor: pointer;
 }
+
+.controller-item {
+	margin-bottom: 20px;
+}
