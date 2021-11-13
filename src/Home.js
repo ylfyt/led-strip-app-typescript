@@ -5,32 +5,23 @@ const Home = () => {
 	const [loading, setLoading] = useState(true);
 	const [current, setCurrent] = useState(null);
 	const [message, setMessage] = useState('Loading...');
-	const temp = {
-		dyn: {
-			dynamic: 'on',
-			direction: 'left',
-			speed: 7,
-		},
-		pal: {
-			palette: 0,
-			palettes: ['yy', 'makan', 'mionum', 'sunset'],
-			brightness: 30,
-		},
-	};
-	const auth = 'pw=1234';
-	const baseUrl = 'http://192.168.43.138';
-	const url = `${baseUrl}?${auth}`;
-	setTimeout(() => {
-		setCurrent(temp);
-		setLoading(false);
-	}, 2000);
-	// fetch(url)
-	// 	.then((response) => response.json())
-	// 	.then((result) => {
-	// 		setCurrent(result);
-	// 		setLoading(false);
-	// 	})
-	// 	.catch((err) => setMessage(err.message));
+
+	if (loading) {
+		console.log('Makan');
+		const auth = 'pw=1234';
+		const baseUrl = 'http://192.168.43.138/current';
+		const url = `${baseUrl}?${auth}`;
+		fetch(url)
+			.then((response) => {
+				return response.json();
+			})
+			.then((result) => {
+				console.log('lest gooo');
+				setCurrent(result);
+				setLoading(false);
+			})
+			.catch((err) => setMessage(err.message));
+	}
 
 	return (
 		<div className="home">

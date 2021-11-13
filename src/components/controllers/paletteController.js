@@ -17,12 +17,14 @@ const PaletteController = ({ sendData, currentPal }) => {
 		}
 		setPalette(idx);
 		setPaletteName(palettes[idx]);
-		sendData('p', idx);
+		// sendData('p', idx);
+		console.log(idx);
 	};
 
 	const handleBrightness = (val) => {
 		setBrightness(val);
-		sendData('b', val);
+		// sendData('b', val);
+		console.log(val);
 	};
 
 	return (
@@ -51,7 +53,7 @@ const PaletteController = ({ sendData, currentPal }) => {
 			<div className="brightness-controller">
 				<div className="sub-label">Brightness: {brightness}</div>
 				<div className="slidecontainer">
-					<input className="slider" type="range" min="0" max="100" step="10" defaultValue="50" onChange={(e) => handleBrightness(e.target.value)} />
+					<input className="slider" type="range" min="0" max="100" step="10" defaultValue={brightness} onChange={(e) => handleBrightness(e.target.value)} />
 				</div>
 			</div>
 		</div>
