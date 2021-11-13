@@ -26,6 +26,37 @@
 	justify-content: center;
 }
 
+.button {
+	height: 20px;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px 10px 20px;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background-color: rgb(173, 173, 173);
+}
+
+.button:hover {
+	cursor: pointer;
+}
+
+.navy {
+	background-color: #142f43;
+}
+.orange {
+	background-color: #ffab4c;
+}
+
+.pink {
+	background-color: #ff5f7e;
+}
+
+.purple {
+	background-color: #b000b9;
+}
+
 .controller {
 	width: 100%;
 	margin-top: 20px;

@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const DirectionController = ({ sendData }) => {
-	const [val, setVal] = useState('Right');
+	const [val, setVal] = useState('right');
 
-	const handleDirection = (val) => {
-		if (val === true) {
-			setVal('Left');
+	const handleDirection = () => {
+		if (val === 'right') {
+			setVal('left');
 			sendData('l', 1);
 		} else {
-			setVal('Right');
+			setVal('right');
 			sendData('l', 0);
 		}
 	};
@@ -16,8 +17,8 @@ const DirectionController = ({ sendData }) => {
 	return (
 		<div className="direction-controller controller-item">
 			<div className="direction-label">Direction: {val}</div>
-			<div className="checkbox">
-				<input type="checkbox" onChange={(e) => handleDirection(e.target.checked)} />
+			<div className={val === 'left' ? 'button orange' : 'button pink'} onClick={handleDirection}>
+				{val === 'left' ? <FaArrowLeft size={25} color="white" /> : <FaArrowRight size={25} color="white" />}
 			</div>
 		</div>
 	);
