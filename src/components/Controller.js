@@ -1,6 +1,6 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 
 const Controller = ({ currentValue }) => {
 	const [feedback, setFeedback] = useState('Ready');
