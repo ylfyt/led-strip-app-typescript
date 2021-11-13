@@ -6,12 +6,12 @@
 }
 
 .content {
-	background-color: greenyellow;
+	/* background-color: greenyellow; */
 	padding: 0 100px 0 100px;
 }
 
 .navbar {
-	background-color: red;
+	/* background-color: red; */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -19,7 +19,7 @@
 }
 
 .home {
-	background-color: blueviolet;
+	/* background-color: blueviolet; */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -62,6 +62,14 @@
 	margin-top: 20px;
 }
 
+.controller-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: violet;
+}
+
 .slider {
 	-webkit-appearance: none;
 	width: 100%;
@@ -92,6 +100,38 @@
 	cursor: pointer;
 }
 
+.move-control {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: space-between;
+}
+
 .controller-item {
 	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.palette-name {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0 10px 0 10px;
+}
+
+.palette-controller {
+	width: 3000px;
+}
+
+.palette-controller-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: tomato;
+}
+
+.dynamic-controller .button {
+	margin-bottom: 15px;
 }
