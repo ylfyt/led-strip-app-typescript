@@ -42,6 +42,10 @@
 	cursor: pointer;
 }
 
+.inactive:hover {
+	cursor: default;
+}
+
 .navy {
 	background-color: #142f43;
 }

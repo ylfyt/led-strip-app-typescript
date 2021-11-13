@@ -10,11 +10,6 @@ const PaletteController = ({ sendData, currentPal }) => {
 
 	const handlePalette = (val) => {
 		let idx = palette + val;
-		if (idx < 0) {
-			idx = 0;
-		} else if (idx > palettes.length - 1) {
-			idx = palettes.length - 1;
-		}
 		setPalette(idx);
 		setPaletteName(palettes[idx]);
 		sendData('p', idx);
@@ -29,23 +24,27 @@ const PaletteController = ({ sendData, currentPal }) => {
 		<div className="palette-controller controller-item">
 			<div className="label">Palette</div>
 			<div className="palette-controller-container">
-				<div
-					className="button orange"
-					onClick={() => {
-						handlePalette(-1);
-					}}
-				>
-					<FaBackward size={25} color="white" />
-				</div>
+				{palette !== 0 ? (
+					<div className="button orange" onClick={() => handlePalette(-1)}>
+						<FaBackward size={25} color="white" />
+					</div>
+				) : (
+					<div className="button inactive">
+						<FaBackward size={25} color="white" />
+					</div>
+				)}
+
 				<div className="palette-name">{paletteName}</div>
-				<div
-					className="button pink"
-					onClick={() => {
-						handlePalette(1);
-					}}
-				>
-					<FaForward size={25} color="white" />
-				</div>
+
+				{palette !== palettes.length - 1 ? (
+					<div className="button pink" onClick={() => handlePalette(1)}>
+						<FaForward size={25} color="white" />
+					</div>
+				) : (
+					<div className="button inactive">
+						<FaForward size={25} color="white" />
+					</div>
+				)}
 			</div>
 
 			<div className="brightness-controller">
