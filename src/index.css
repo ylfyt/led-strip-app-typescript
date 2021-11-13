@@ -67,7 +67,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: violet;
+	/* background-color: violet; */
 }
 
 .slider {
@@ -108,30 +108,47 @@
 }
 
 .controller-item {
-	margin-bottom: 20px;
+	margin-bottom: 35px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-width: 350px;
+	/* background-color: green; */
+}
+
+.slidecontainer {
+	width: 100%;
+	/* background-color: greenyellow; */
+}
+.speed-controller {
+	width: 100%;
+}
+
+.brightness-controller {
+	margin-top: 20px;
+	width: 100%;
 }
 
 .palette-name {
 	font-size: 20px;
-	font-weight: 600;
+	font-weight: 400;
 	margin: 0 10px 0 10px;
-}
-
-.palette-controller {
-	width: 3000px;
 }
 
 .palette-controller-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: tomato;
+	/* background-color: tomato; */
 }
 
 .dynamic-controller .button {
 	margin-bottom: 15px;
+}
+
+.label {
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 20px;
 }
