@@ -17,14 +17,12 @@ const PaletteController = ({ sendData, currentPal }) => {
 		}
 		setPalette(idx);
 		setPaletteName(palettes[idx]);
-		// sendData('p', idx);
-		console.log(idx);
+		sendData('p', idx);
 	};
 
 	const handleBrightness = (val) => {
 		setBrightness(val);
-		// sendData('b', val);
-		console.log(val);
+		sendData('b', val);
 	};
 
 	return (
