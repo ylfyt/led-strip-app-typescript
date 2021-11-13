@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaToggleOff, FaToggleOn } from 'react-icons/fa';
 
-const DynamicController = ({ sendData }) => {
-	const [dynamic, setDynamic] = useState('off');
-	const [direction, setDirection] = useState('right');
-	const [speed, setSpeed] = useState(10);
+const DynamicController = ({ sendData, currentDyn }) => {
+	const [dynamic, setDynamic] = useState(currentDyn.dynamic);
+	const [direction, setDirection] = useState(currentDyn.direction);
+	const [speed, setSpeed] = useState(currentDyn.speed);
 
 	const handleDynamic = () => {
 		if (dynamic === 'off') {
@@ -42,9 +42,9 @@ const DynamicController = ({ sendData }) => {
 				{direction === 'left' ? <FaArrowLeft size={25} color="white" /> : <FaArrowRight size={25} color="white" />}
 			</div>
 			<div className="speed-controller">
-				<div className="speed-label">Speed : {speed}</div>
+				<div className="sub-label">Speed : {speed}</div>
 				<div className="slidecontainer">
-					<input className="slider" defaultValue="10" type="range" min="1" max="30" step="1" onChange={(e) => handleSpeed(e.target.value)} />
+					<input className="slider" defaultValue={currentDyn.speed} type="range" min="1" max="30" step="1" onChange={(e) => handleSpeed(e.target.value)} />
 				</div>
 			</div>
 		</div>

@@ -114,7 +114,10 @@
 	justify-content: center;
 	align-items: center;
 	min-width: 350px;
-	/* background-color: green; */
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+	background-color: #ebb6b6;
 }
 
 .slidecontainer {
@@ -131,8 +134,9 @@
 }
 
 .palette-name {
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 400;
+	font-style: italic;
 	margin: 0 10px 0 10px;
 }
 
@@ -140,7 +144,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* background-color: tomato; */
+	width: 100%;
 }
 
 .dynamic-controller .button {
@@ -151,4 +155,8 @@
 	font-size: 30px;
 	font-weight: 500;
 	margin-bottom: 20px;
+}
+
+.sub-label {
+	font-style: italic;
 }
