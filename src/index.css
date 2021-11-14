@@ -17,6 +17,10 @@ h1 {
 	font-style: italic;
 }
 
+.home-title {
+	margin-bottom: 20px;
+}
+
 .navbar {
 	/* background-color: red; */
 	display: flex;
@@ -55,7 +59,7 @@ h1 {
 
 .controller {
 	width: 100%;
-	margin-top: 20px;
+	/* margin-top: 20px; */
 }
 
 .controller-container {
@@ -192,4 +196,21 @@ h1 {
 
 .failed {
 	color: red;
+}
+
+@media (max-width: 430px) {
+	.controller-item {
+		margin-bottom: 10px;
+	}
+
+	.home-title {
+		margin-bottom: 0;
+	}
+
+	.content {
+		margin-top: 0;
+	}
+	.label {
+		margin-bottom: 15px;
+	}
 }

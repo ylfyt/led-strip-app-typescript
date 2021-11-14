@@ -24,7 +24,7 @@ const Home = () => {
 
 	return (
 		<div className="home">
-			<h1>Strip Apps</h1>
+			<h1 className="home-title">Strip Apps</h1>
 			{loading ? <div>{message}</div> : <Controller currentValue={current} />}
 		</div>
 	);
