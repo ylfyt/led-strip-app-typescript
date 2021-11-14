@@ -23,27 +23,27 @@ const PaletteController = ({ sendData, currentPal }) => {
 	return (
 		<div className="palette-controller controller-item">
 			<div className="label">Palette</div>
-			<div className="palette-controller-container">
+			<div className="palette-controller-container ">
 				{palette !== 0 ? (
-					<div className="button orange" onClick={() => handlePalette(-1)}>
+					<button className="button orange" onClick={() => handlePalette(-1)}>
 						<FaBackward size={25} color="white" />
-					</div>
+					</button>
 				) : (
-					<div className="button inactive">
+					<button className="button inactive">
 						<FaBackward size={25} color="white" />
-					</div>
+					</button>
 				)}
 
 				<div className="palette-name">{paletteName}</div>
 
 				{palette !== palettes.length - 1 ? (
-					<div className="button pink" onClick={() => handlePalette(1)}>
+					<button className="button pink" onClick={() => handlePalette(1)}>
 						<FaForward size={25} color="white" />
-					</div>
+					</button>
 				) : (
-					<div className="button inactive">
+					<button className="button inactive">
 						<FaForward size={25} color="white" />
-					</div>
+					</button>
 				)}
 			</div>
 

@@ -34,13 +34,13 @@ const DynamicController = ({ sendData, currentDyn }) => {
 	return (
 		<div className="dynamic-controller controller-item">
 			<div className="label">Dynamic</div>
-			<div className={dynamic === 'off' ? 'button' : 'button purple'} onClick={handleDynamic}>
+			<button className={dynamic === 'off' ? 'button' : 'button purple'} onClick={handleDynamic}>
 				{dynamic === 'off' ? <FaToggleOff size={25} color="black" /> : <FaToggleOn size={25} color="white" />}
-			</div>
+			</button>
 
-			<div className={direction === 'left' ? 'button orange' : 'button pink'} onClick={handleDirection}>
+			<button className={direction === 'left' ? 'button orange' : 'button pink'} onClick={handleDirection}>
 				{direction === 'left' ? <FaArrowLeft size={25} color="white" /> : <FaArrowRight size={25} color="white" />}
-			</div>
+			</button>
 			<div className="speed-controller">
 				<div className="sub-label">Speed : {speed}</div>
 				<div className="slidecontainer">
