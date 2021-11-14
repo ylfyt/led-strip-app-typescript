@@ -12,12 +12,12 @@ const Controller = ({ currentValue }) => {
 		const time = h + ':' + m + ':' + s + ':' + ms;
 		let msg = '';
 		if (key === '' && val === '') {
-			msg = time + ' Ready to send data';
+			msg = `${time} Ready to send data`;
 		} else {
 			if (success) {
-				msg = time + ' ' + 'Success send ' + key + ': ' + val;
+				msg = `${time} Success send ${key}: ${val}`;
 			} else {
-				msg = time + ' ' + 'Failed send ' + key + ': ' + val;
+				msg = `${time} Failed send ${key}: ${val}`;
 			}
 		}
 
