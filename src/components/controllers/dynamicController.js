@@ -34,7 +34,7 @@ const DynamicController = ({ sendData, currentDyn }) => {
 	return (
 		<div className="dynamic-controller controller-item">
 			<div className="label">Dynamic</div>
-			<div className={dynamic === 'off' ? 'button gray' : 'button purple'} onClick={handleDynamic}>
+			<div className={dynamic === 'off' ? 'button' : 'button purple'} onClick={handleDynamic}>
 				{dynamic === 'off' ? <FaToggleOff size={25} color="black" /> : <FaToggleOn size={25} color="white" />}
 			</div>
 

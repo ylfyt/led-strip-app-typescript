@@ -2,12 +2,19 @@
 
 * {
 	margin: 0;
-	font-family: 'Poppins';
+	font-family: 'Poppins', monospace;
 }
 
 .content {
 	/* background-color: greenyellow; */
-	padding: 0 100px 0 100px;
+	padding: 0 50px 0 50px;
+	margin-top: 50px;
+}
+
+h1 {
+	font-size: 40px;
+	font-weight: 500;
+	font-style: italic;
 }
 
 .navbar {
@@ -44,21 +51,6 @@
 
 .inactive:hover {
 	cursor: default;
-}
-
-.navy {
-	background-color: #142f43;
-}
-.orange {
-	background-color: #ffab4c;
-}
-
-.pink {
-	background-color: #ff5f7e;
-}
-
-.purple {
-	background-color: #b000b9;
 }
 
 .controller {
@@ -163,4 +155,41 @@
 
 .sub-label {
 	font-style: italic;
+}
+
+.console {
+	padding: 10px 30px 10px 30px;
+	align-items: flex-start;
+	background-color: #f1e4e7;
+	justify-content: flex-start;
+	height: 92px;
+}
+
+.feedback-item {
+	font-family: 'Courier New', Courier, monospace;
+	font-variant-numeric: tabular-nums;
+	font-size: 1rem;
+}
+
+.navy {
+	background-color: #142f43;
+}
+.orange {
+	background-color: #ffab4c;
+}
+
+.pink {
+	background-color: #ff5f7e;
+}
+
+.purple {
+	background-color: #b000b9;
+}
+
+.success {
+	color: rgb(12, 146, 12);
+}
+
+.failed {
+	color: red;
 }
