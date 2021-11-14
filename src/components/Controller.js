@@ -36,8 +36,13 @@ const Controller = ({ currentValue }) => {
 		const baseUrl = `http://192.168.43.138/strip`;
 		const url = `${baseUrl}?${auth}&${data}`;
 		fetch(url)
-			.then((response) => response.text())
-			.then((result) => updateFeedback(key, val, true))
+			.then((response) => {
+				if (response.ok) {
+					updateFeedback(key, val, true);
+				} else {
+					updateFeedback(key, val, false);
+				}
+			})
 			.catch((err) => updateFeedback(key, val, false));
 	};
 
