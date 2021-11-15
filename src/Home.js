@@ -1,6 +1,7 @@
 import Controller from './components/Controller';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import API_PASSWORD from './credential';
 
 const Home = () => {
 	const [loading, setLoading] = useState(true);
@@ -8,7 +9,7 @@ const Home = () => {
 	const [message, setMessage] = useState('Loading...');
 
 	useEffect(() => {
-		const auth = 'pw=1234';
+		const auth = `pw=${API_PASSWORD}`;
 		const baseUrl = 'http://192.168.43.138/current';
 		const url = `${baseUrl}?${auth}`;
 		fetch(url)

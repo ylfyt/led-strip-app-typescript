@@ -1,6 +1,7 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
 import { useState } from 'react';
+import API_PASSWORD from '../credential';
 
 const Controller = ({ currentValue }) => {
 	const getFeedback = (key, val, success) => {
@@ -31,7 +32,7 @@ const Controller = ({ currentValue }) => {
 	const firstFeedback = getFeedback('', '', true);
 	const [feedbacks, setFeedbacks] = useState([firstFeedback]);
 	const sendData = async (key, val) => {
-		const auth = 'pw=1234';
+		const auth = `pw=${API_PASSWORD}`;
 		const data = `${key}=${val}`;
 		const baseUrl = `http://192.168.43.138/strip`;
 		const url = `${baseUrl}?${auth}&${data}`;
