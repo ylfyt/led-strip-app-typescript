@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-credential.js
+src/constants/credential.ts
 
 # dependencies
 /node_modules
