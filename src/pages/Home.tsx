@@ -1,8 +1,8 @@
-import Controller from './components/Controller';
+import Controller from '../components/Controller';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import API_PASSWORD from './credential';
-import { LedState } from './interfaces';
+import API_PASSWORD from '../constants/credential';
+import { LedState } from '../constants/interfaces';
 
 const Home = () => {
 	const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ const Home = () => {
 	return (
 		<div className="home">
 			<h1 className="home-title">Controller</h1>
-			{loading ? <div>{message}</div> : <Controller currentState={current!} />}
+			{loading ? <div>{message}</div> : current && <Controller currentState={current} />}
 		</div>
 	);
 };

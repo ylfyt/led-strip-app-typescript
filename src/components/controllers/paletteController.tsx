@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { FaBackward, FaForward } from 'react-icons/fa';
-import { PaletteProps } from '../../interfaces';
+import { PaletteProps } from '../../constants/interfaces';
 
 const PaletteController: FC<PaletteProps> = (props) => {
 	const palettes = props.paletteState.palettes;

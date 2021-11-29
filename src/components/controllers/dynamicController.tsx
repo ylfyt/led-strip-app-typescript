@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaToggleOff, FaToggleOn } from 'react-icons/fa';
-import { DynamicProps } from '../../interfaces';
+import { DynamicProps } from '../../constants/interfaces';
 
 const DynamicController: FC<DynamicProps> = (props) => {
 	const [dynamic, setDynamic] = useState(props.dynamicState.dynamic);

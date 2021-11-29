@@ -1,6 +1,6 @@
 {
-	"name": "nodemcu-ledstrip-controller",
-	"version": "0.1.0",
+	"name": "ledstrip-app-typescript",
+	"version": "0.2.0",
 	"private": true,
 	"homepage": ".",
 	"dependencies": {

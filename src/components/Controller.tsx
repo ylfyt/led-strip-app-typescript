@@ -1,8 +1,8 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
 import { FC, useState } from 'react';
-import API_PASSWORD from '../credential';
-import { ControllerPorps } from '../interfaces';
+import API_PASSWORD from '../constants/credential';
+import { ControllerPorps } from '../constants/interfaces';
 
 const Controller: FC<ControllerPorps> = (props) => {
 	const getFeedback = (key: string, val: string, success: boolean) => {
