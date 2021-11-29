@@ -1,23 +1,24 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { FaBackward, FaForward } from 'react-icons/fa';
+import { PaletteProps } from '../../interfaces';
 
-const PaletteController = ({ sendData, currentPal }) => {
-	const palettes = currentPal.palettes;
+const PaletteController: FC<PaletteProps> = (props) => {
+	const palettes = props.paletteState.palettes;
 
-	const [palette, setPalette] = useState(currentPal.palette);
-	const [brightness, setBrightness] = useState(currentPal.brightness);
+	const [palette, setPalette] = useState(props.paletteState.palette);
+	const [brightness, setBrightness] = useState(props.paletteState.brightness);
 	const [paletteName, setPaletteName] = useState(palettes[palette]);
 
-	const handlePalette = (val) => {
+	const handlePalette = (val: number) => {
 		let idx = palette + val;
 		setPalette(idx);
 		setPaletteName(palettes[idx]);
-		sendData('p', idx);
+		props.sendData('p', String(idx));
 	};
 
-	const handleBrightness = (val) => {
-		setBrightness(val);
-		sendData('b', val);
+	const handleBrightness = (val: string) => {
+		setBrightness(parseInt(val));
+		props.sendData('b', val);
 	};
 
 	return (

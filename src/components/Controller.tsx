@@ -1,10 +1,11 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import API_PASSWORD from '../credential';
+import { ControllerPorps } from '../interfaces';
 
-const Controller = ({ currentValue }) => {
-	const getFeedback = (key, val, success) => {
+const Controller: FC<ControllerPorps> = (props) => {
+	const getFeedback = (key: string, val: string, success: boolean) => {
 		const now = new Date();
 		const h = now.getHours().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
 		const m = now.getMinutes().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
@@ -31,7 +32,7 @@ const Controller = ({ currentValue }) => {
 	};
 	const firstFeedback = getFeedback('', '', true);
 	const [feedbacks, setFeedbacks] = useState([firstFeedback]);
-	const sendData = async (key, val) => {
+	const sendData = async (key: string, val: string) => {
 		const auth = `pw=${API_PASSWORD}`;
 		const data = `${key}=${val}`;
 		const baseUrl = `http://192.168.43.138/strip`;
@@ -47,7 +48,7 @@ const Controller = ({ currentValue }) => {
 			.catch((err) => updateFeedback(key, val, false));
 	};
 
-	const updateFeedback = (key, val, success) => {
+	const updateFeedback = (key: string, val: string, success: boolean) => {
 		const feedback = getFeedback(key, val, success);
 		const temp = [feedback, ...feedbacks];
 		if (temp.length > 5) {
@@ -59,8 +60,8 @@ const Controller = ({ currentValue }) => {
 	return (
 		<div className="controller">
 			<div className="controller-container">
-				<DynamicController sendData={sendData} currentDyn={currentValue.dyn} />
-				<PaletteController sendData={sendData} currentPal={currentValue.pal} />
+				<DynamicController sendData={sendData} dynamicState={props.currentState.dyn} />
+				<PaletteController sendData={sendData} paletteState={props.currentState.pal} />
 				<div className="console feedback-container controller-item">
 					{feedbacks.map((feedback, idx) => (
 						<div key={idx} className={feedback.success ? 'feedback-item success' : 'feedback-item failed'}>

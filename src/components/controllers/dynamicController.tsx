@@ -1,34 +1,35 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaToggleOff, FaToggleOn } from 'react-icons/fa';
+import { DynamicProps } from '../../interfaces';
 
-const DynamicController = ({ sendData, currentDyn }) => {
-	const [dynamic, setDynamic] = useState(currentDyn.dynamic);
-	const [direction, setDirection] = useState(currentDyn.direction);
-	const [speed, setSpeed] = useState(currentDyn.speed);
+const DynamicController: FC<DynamicProps> = (props) => {
+	const [dynamic, setDynamic] = useState(props.dynamicState.dynamic);
+	const [direction, setDirection] = useState(props.dynamicState.direction);
+	const [speed, setSpeed] = useState(props.dynamicState.speed);
 
 	const handleDynamic = () => {
 		if (dynamic === 'off') {
 			setDynamic('on');
-			sendData('d', 1);
+			props.sendData('d', String(1));
 		} else {
 			setDynamic('off');
-			sendData('d', 0);
+			props.sendData('d', String(0));
 		}
 	};
 
 	const handleDirection = () => {
 		if (direction === 'right') {
 			setDirection('left');
-			sendData('l', 1);
+			props.sendData('l', String(1));
 		} else {
 			setDirection('right');
-			sendData('l', 0);
+			props.sendData('l', String(0));
 		}
 	};
 
-	const handleSpeed = (val) => {
-		setSpeed(val);
-		sendData('s', val);
+	const handleSpeed = (val: string) => {
+		setSpeed(parseInt(val));
+		props.sendData('s', String(val));
 	};
 
 	return (
@@ -47,7 +48,7 @@ const DynamicController = ({ sendData, currentDyn }) => {
 			<div className="speed-controller">
 				<div className="sub-label">Speed : {speed}</div>
 				<div className="slidecontainer">
-					<input className="slider" defaultValue={currentDyn.speed} type="range" min="1" max="30" step="1" onChange={(e) => handleSpeed(e.target.value)} />
+					<input className="slider" defaultValue={props.dynamicState.speed} type="range" min="1" max="30" step="1" onChange={(e) => handleSpeed(e.target.value)} />
 				</div>
 			</div>
 		</div>
