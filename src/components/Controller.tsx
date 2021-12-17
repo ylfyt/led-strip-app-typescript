@@ -1,7 +1,7 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
 import { FC, useState } from 'react';
-import API_PASSWORD from '../constants/credential';
+import { API_PASSWORD, BASE_URL } from '../constants/constant';
 import { ControllerPorps } from '../constants/interfaces';
 
 const Controller: FC<ControllerPorps> = (props) => {
@@ -35,7 +35,7 @@ const Controller: FC<ControllerPorps> = (props) => {
 	const sendData = async (key: string, val: string) => {
 		const auth = `pw=${API_PASSWORD}`;
 		const data = `${key}=${val}`;
-		const baseUrl = `http://192.168.43.138/strip`;
+		const baseUrl = `${BASE_URL}/strip`;
 		const url = `${baseUrl}?${auth}&${data}`;
 		fetch(url)
 			.then((response) => {

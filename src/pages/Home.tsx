@@ -1,7 +1,7 @@
 import Controller from '../components/Controller';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import API_PASSWORD from '../constants/credential';
+import { API_PASSWORD, BASE_URL } from '../constants/constant';
 import { LedState } from '../constants/interfaces';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
 
 	useEffect(() => {
 		const auth = `pw=${API_PASSWORD}`;
-		const baseUrl = 'http://192.168.43.138/current';
+		const baseUrl = `${BASE_URL}/current`;
 		const url = `${baseUrl}?${auth}`;
 		fetch(url)
 			.then((response) => {
