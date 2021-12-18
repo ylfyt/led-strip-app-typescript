@@ -65,7 +65,7 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 		<div className="home">
 			<h1 className="home-title">Controller</h1>
 			{loading && (
-				<div className="meessage-container">
+				<div className="message-container">
 					{messages.map((message, idx) => {
 						return idx === 0 ? (
 							<p key={idx}>{message}</p>
