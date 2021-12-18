@@ -29,5 +29,8 @@ export interface ControllerPorps {
 	currentState: LedState;
 	baseURL: string;
 }
+export interface CustomRequestInit extends RequestInit {
+	timeout?: number;
+}
 
 export type IPAddress = string | null;

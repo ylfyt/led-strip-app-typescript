@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { useEffect } from 'react';
 import { API_PASSWORD, GAPI_URL } from '../constants/constant';
 import { LedState } from '../constants/interfaces';
+import { fetchWithTimeout } from '../utility/utility';
 
 interface HomeProps {
 	localIp: string;
@@ -22,7 +23,7 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 		const url = `${baseUrl}?${auth}`;
 
 		if (validIp) {
-			fetch(url)
+			fetchWithTimeout(url, { timeout: 2000 })
 				.then((response) => {
 					return response.json();
 				})
@@ -34,13 +35,13 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 				})
 				.catch((err) => {
 					let temp = [...messages];
-					temp.push(err.message);
+					temp.push('Failed to fetch current state!!');
 					temp.push('Looking for new IP');
 					setMessages(temp);
 					setValidIp(false);
 				});
 		} else {
-			fetch(GAPI_URL)
+			fetchWithTimeout(GAPI_URL)
 				.then((response) => {
 					return response.json();
 				})
