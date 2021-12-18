@@ -2,26 +2,17 @@ import Controller from '../components/Controller';
 import { FC, useState } from 'react';
 import { useEffect } from 'react';
 import { API_PASSWORD, BASE_URL, DEFAULT_IP, GAPI_URL } from '../constants/constant';
-import { IPAddress, LedState } from '../constants/interfaces';
-import { userInfo } from 'os';
+import { LedState } from '../constants/interfaces';
 
 interface HomeProps {
-	localIp: IPAddress;
+	localIp: string;
 }
 
 const Home: FC<HomeProps> = ({ localIp }) => {
-	let ip = '';
-	if (localIp === null) {
-		ip = DEFAULT_IP;
-		localStorage.setItem('node_ip', DEFAULT_IP);
-	} else {
-		ip = localIp;
-	}
-
 	const [succeess, setSuccess] = useState(false);
 	const [current, setCurrent] = useState<LedState | null>(null);
 	const [messages, setMessages] = useState(['Loading...']);
-	const [ipAddress, setIpAddess] = useState(ip);
+	const [ipAddress, setIpAddess] = useState(localIp);
 	const [validIp, setValidIp] = useState(true);
 	const [baseURL, setBaseURL] = useState('');
 	const [loading, setLoading] = useState(true);
@@ -37,6 +28,7 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 					return response.json();
 				})
 				.then((result) => {
+					localStorage.setItem('node_ip', ipAddress);
 					setCurrent(result);
 					setBaseURL(`http://${ipAddress}`);
 					setSuccess(true);
@@ -56,7 +48,6 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 				})
 				.then((result) => {
 					localStorage.setItem('node_ip', result.ip);
-					console.log(result.ip);
 					let temp = [...messages];
 					temp.push('Get new IP');
 					temp.push('Load current state');
