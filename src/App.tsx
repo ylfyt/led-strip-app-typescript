@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { DEFAULT_IP } from './constants/constant';
-import { IPAddress } from './constants/interfaces';
 import Home from './pages/Home';
 
 function App() {

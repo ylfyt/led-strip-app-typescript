@@ -1,7 +1,7 @@
 import Controller from '../components/Controller';
 import { FC, useState } from 'react';
 import { useEffect } from 'react';
-import { API_PASSWORD, BASE_URL, DEFAULT_IP, GAPI_URL } from '../constants/constant';
+import { API_PASSWORD, GAPI_URL } from '../constants/constant';
 import { LedState } from '../constants/interfaces';
 
 interface HomeProps {
@@ -9,7 +9,6 @@ interface HomeProps {
 }
 
 const Home: FC<HomeProps> = ({ localIp }) => {
-	const [succeess, setSuccess] = useState(false);
 	const [current, setCurrent] = useState<LedState | null>(null);
 	const [messages, setMessages] = useState(['Loading...']);
 	const [ipAddress, setIpAddess] = useState(localIp);
@@ -31,7 +30,6 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 					localStorage.setItem('node_ip', ipAddress);
 					setCurrent(result);
 					setBaseURL(`http://${ipAddress}`);
-					setSuccess(true);
 					setLoading(false);
 				})
 				.catch((err) => {
@@ -60,8 +58,6 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 					setMessages(temp);
 				});
 		}
-
-		// setMessage(url);
 	}, [validIp]);
 
 	return (

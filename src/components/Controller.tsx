@@ -1,7 +1,7 @@
 import DynamicController from './controllers/dynamicController';
 import PaletteController from './controllers/paletteController';
 import { FC, useState } from 'react';
-import { API_PASSWORD, BASE_URL } from '../constants/constant';
+import { API_PASSWORD } from '../constants/constant';
 import { ControllerPorps } from '../constants/interfaces';
 
 const Controller: FC<ControllerPorps> = ({ currentState, baseURL }) => {
