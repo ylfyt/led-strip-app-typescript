@@ -27,4 +27,7 @@ export interface LedState {
 
 export interface ControllerPorps {
 	currentState: LedState;
+	baseURL: string;
 }
+
+export type IPAddress = string | null;

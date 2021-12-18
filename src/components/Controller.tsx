@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 import { API_PASSWORD, BASE_URL } from '../constants/constant';
 import { ControllerPorps } from '../constants/interfaces';
 
-const Controller: FC<ControllerPorps> = (props) => {
+const Controller: FC<ControllerPorps> = ({ currentState, baseURL }) => {
 	const getFeedback = (key: string, val: string, success: boolean) => {
 		const now = new Date();
 		const h = now.getHours().toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
@@ -35,7 +35,7 @@ const Controller: FC<ControllerPorps> = (props) => {
 	const sendData = async (key: string, val: string) => {
 		const auth = `pw=${API_PASSWORD}`;
 		const data = `${key}=${val}`;
-		const baseUrl = `${BASE_URL}/strip`;
+		const baseUrl = `${baseURL}/strip`;
 		const url = `${baseUrl}?${auth}&${data}`;
 		fetch(url)
 			.then((response) => {
@@ -60,8 +60,8 @@ const Controller: FC<ControllerPorps> = (props) => {
 	return (
 		<div className="controller">
 			<div className="controller-container">
-				<DynamicController sendData={sendData} dynamicState={props.currentState.dyn} />
-				<PaletteController sendData={sendData} paletteState={props.currentState.pal} />
+				<DynamicController sendData={sendData} dynamicState={currentState.dyn} />
+				<PaletteController sendData={sendData} paletteState={currentState.pal} />
 				<div className="console feedback-container controller-item">
 					{feedbacks.map((feedback, idx) => (
 						<div key={idx} className={feedback.success ? 'feedback-item success' : 'feedback-item failed'}>
