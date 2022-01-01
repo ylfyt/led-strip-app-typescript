@@ -19,11 +19,11 @@ const Home: FC<HomeProps> = ({ localIp }) => {
 
 	useEffect(() => {
 		const auth = `pw=${API_PASSWORD}`;
-		const baseUrl = `http://${ipAddress}/current`;
-		const url = `${baseUrl}?${auth}`;
+		const url = `http://${ipAddress}/current`;
+		const uri = `${url}?${auth}`;
 
 		if (validIp) {
-			fetchWithTimeout(url, { timeout: 2000 })
+			fetchWithTimeout(uri, { timeout: 2000 })
 				.then((response) => {
 					return response.json();
 				})
