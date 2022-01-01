@@ -1,4 +1,5 @@
 import { CustomRequestInit } from '../constants/interfaces';
+import hexRgb from 'hex-rgb';
 
 export const fetchWithTimeout = async (resource: RequestInfo, options: CustomRequestInit | undefined = {}) => {
 	const { timeout = 8000 } = options;
@@ -15,12 +16,14 @@ export const fetchWithTimeout = async (resource: RequestInfo, options: CustomReq
 };
 
 export const hexToRgb = (hex: string) => {
-	// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-	hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-		return r + r + g + g + b + b;
-	});
+	try {
+		console.log('hex', hex);
+		const result = hexRgb(hex);
 
-	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
+		const str = `${result.red},${result.green},${result.blue}`;
+
+		return str;
+	} catch (error: unknown) {
+		return null;
+	}
 };
