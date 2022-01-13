@@ -5,6 +5,10 @@
 	font-family: 'Poppins', monospace;
 }
 
+body {
+	background-color: #121212;
+}
+
 h1 {
 	font-size: 40px;
 	font-weight: 500;
@@ -19,6 +23,7 @@ h1 {
 
 .home-title {
 	margin-bottom: 20px;
+	color: white;
 }
 
 .navbar {
@@ -125,7 +130,7 @@ h1 {
 	padding: 30px;
 	border-radius: 15px;
 	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
-	background-color: #ebb6b6;
+	background-color: #bb86fc;
 }
 
 .slidecontainer {
@@ -181,7 +186,7 @@ h1 {
 .console {
 	padding: 15px 30px 15px 30px;
 	align-items: flex-start;
-	background-color: #f1e4e7;
+	background-color: #03dac6;
 	justify-content: flex-start;
 	height: 91px;
 }
@@ -208,7 +213,7 @@ h1 {
 }
 
 .success {
-	color: rgb(12, 146, 12);
+	color: rgb(0, 0, 0);
 }
 
 .failed {
