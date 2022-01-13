@@ -66,7 +66,6 @@ const Controller: FC<ControllerPorps> = ({ currentState, baseURL }) => {
 			<div className="controller-container">
 				<DynamicController sendData={sendData} dynamicState={currentState.dyn} />
 				<PaletteController sendData={sendData} paletteState={currentState.pal} />
-				<CustomPaletteController sendData={sendData} updateConsoleFeedback={updateFeedback} />
 				<div className="console feedback-container controller-item">
 					{feedbacks.map((feedback, idx) => (
 						<div key={idx} className={feedback.success ? 'feedback-item success' : 'feedback-item failed'}>
